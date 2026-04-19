@@ -1,0 +1,29 @@
+{
+  "case_id": "extreme_cases_001",
+  "task_type": "extreme",
+  "subgroup": "cases",
+  "description": "Edge cases for tokenizer behavior",
+  "tags": ["oov", "unicode", "random"],
+  "variants": [
+    {
+      "variant_id": "生僻字",
+      "language": "zh",
+      "text": "龘靐齉齾"
+    },
+    {
+      "variant_id": "重复字符",
+      "language": "text",
+      "text": "aaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "variant_id": "随机字符串",
+      "language": "text",
+      "text": "x9Q#@!asD12z"
+    },
+    {
+      "variant_id": "Base64",
+      "language": "text",
+      "text": "SGVsbG8gd29ybGQ="
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "case_id": "emoji_basic_001",
+  "task_type": "emoji",
+  "subgroup": "basic",
+  "description": "Emoji tokenization behavior",
+  "tags": ["emoji", "unicode"],
+  "variants": [
+    {
+      "variant_id": "单个表情",
+      "language": "emoji",
+      "text": "😀"
+    },
+    {
+      "variant_id": "连续表情",
+      "language": "emoji",
+      "text": "😀😃😄😁😆😅😂🤣🥲😊"
+    },
+    {
+      "variant_id": "文本+表情",
+      "language": "mixed",
+      "text": "hello 😀 world 😂"
+    },
+    {
+      "variant_id": "重复表情",
+      "language": "emoji",
+      "text": "😂😂😂😂😂😂😂"
+    }
+  ]
+}

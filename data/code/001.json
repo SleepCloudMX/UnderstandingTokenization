@@ -1,0 +1,29 @@
+{
+  "case_id": "code_python_format_001",
+  "task_type": "code",
+  "subgroup": "python_format",
+  "description": "Whitespace and formatting effects in Python code",
+  "tags": ["code", "python", "whitespace"],
+  "variants": [
+    {
+      "variant_id": "标准格式",
+      "language": "python",
+      "text": "def add(a, b):\n    return a + b"
+    },
+    {
+      "variant_id": "压缩格式",
+      "language": "python",
+      "text": "def add(a,b):return a+b"
+    },
+    {
+      "variant_id": "过度空格",
+      "language": "python",
+      "text": "def    add(  a,  b  ):\n        return    a   +   b"
+    },
+    {
+      "variant_id": "单行多语句",
+      "language": "python",
+      "text": "a=1;b=2;c=a+b"
+    }
+  ]
+}

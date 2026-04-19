@@ -1,0 +1,29 @@
+{
+  "case_id": "format_structured_001",
+  "task_type": "format",
+  "subgroup": "structured",
+  "description": "Structured text vs natural language",
+  "tags": ["json", "markdown", "html"],
+  "variants": [
+    {
+      "variant_id": "自然语言",
+      "language": "text",
+      "text": "Alice is 25 years old."
+    },
+    {
+      "variant_id": "JSON",
+      "language": "json",
+      "text": "{\"name\": \"Alice\", \"age\": 25}"
+    },
+    {
+      "variant_id": "Markdown",
+      "language": "markdown",
+      "text": "# Title\n- item1\n- item2"
+    },
+    {
+      "variant_id": "HTML",
+      "language": "html",
+      "text": "<div><p>Hello</p></div>"
+    }
+  ]
+}

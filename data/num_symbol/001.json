@@ -1,0 +1,39 @@
+{
+  "case_id": "number_symbol_mixed_001",
+  "task_type": "number_symbol",
+  "subgroup": "mixed",
+  "description": "Numbers, emails, URLs, and hyphenated words",
+  "tags": ["number", "symbol", "url", "email"],
+  "variants": [
+    {
+      "variant_id": "长整数",
+      "language": "text",
+      "text": "12345678901234567890"
+    },
+    {
+      "variant_id": "圆周率",
+      "language": "text",
+      "text": "3.1415926535897932384626"
+    },
+    {
+      "variant_id": "电话号码",
+      "language": "text",
+      "text": "+65-9123-4567"
+    },
+    {
+      "variant_id": "邮箱",
+      "language": "text",
+      "text": "test.email-123@gmail.com"
+    },
+    {
+      "variant_id": "URL",
+      "language": "text",
+      "text": "https://example.com/path?query=1"
+    },
+    {
+      "variant_id": "连字符单词",
+      "language": "text",
+      "text": "state-of-the-art"
+    }
+  ]
+}
