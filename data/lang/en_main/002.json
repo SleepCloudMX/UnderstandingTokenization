@@ -1,0 +1,24 @@
+{
+  "case_id": "lang_en_main_002",
+  "task_type": "lang",
+  "subgroup": "en_main",
+  "description": "A multi-line paragraph about technology, testing tokenization of longer content",
+  "tags": ["paragraph", "technology", "multiline"],
+  "variants": [
+    {
+      "variant_id": "en",
+      "language": "en",
+      "text": "Artificial intelligence is transforming the way we live and work.\nMachine learning models can now understand text, images, and audio\nwith remarkable accuracy.\nThis rapid progress raises important ethical questions."
+    },
+    {
+      "variant_id": "zh",
+      "language": "zh",
+      "text": "人工智能正在改变我们的生活和工作方式。\n机器学习模型现在能够以惊人的精度理解文本、图像和音频。\n这一快速进步引发了重要的伦理问题。"
+    },
+    {
+      "variant_id": "de",
+      "language": "de",
+      "text": "Künstliche Intelligenz verändert die Art und Weise, wie wir leben und arbeiten.\nMaschinenlernmodelle können nun Text, Bilder und Audio\nmit bemerkenswerter Genauigkeit verstehen.\nDieses schnelle Fortschreiten wirft wichtige ethische Fragen auf."
+    }
+  ]
+}

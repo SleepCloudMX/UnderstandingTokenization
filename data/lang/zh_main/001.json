@@ -1,0 +1,24 @@
+{
+  "case_id": "lang_zh_main_001",
+  "task_type": "lang",
+  "subgroup": "zh_main",
+  "description": "Basic greeting sentence, Chinese as the source / main language",
+  "tags": ["greeting", "short", "baseline"],
+  "variants": [
+    {
+      "variant_id": "zh",
+      "language": "zh",
+      "text": "你好，世界！你今天怎么样？"
+    },
+    {
+      "variant_id": "en",
+      "language": "en",
+      "text": "Hello, world! How are you today?"
+    },
+    {
+      "variant_id": "ja",
+      "language": "ja",
+      "text": "こんにちは、世界！今日はお元気ですか？"
+    }
+  ]
+}

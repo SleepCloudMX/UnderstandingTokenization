@@ -1,0 +1,34 @@
+{
+  "case_id": "lang_en_main_001",
+  "task_type": "lang",
+  "subgroup": "en_main",
+  "description": "Basic greeting sentence, used as the reference baseline in English",
+  "tags": ["greeting", "short", "baseline"],
+  "variants": [
+    {
+      "variant_id": "en",
+      "language": "en",
+      "text": "Hello, world! How are you today?"
+    },
+    {
+      "variant_id": "zh",
+      "language": "zh",
+      "text": "你好，世界！你今天怎么样？"
+    },
+    {
+      "variant_id": "ja",
+      "language": "ja",
+      "text": "こんにちは、世界！今日はお元気ですか？"
+    },
+    {
+      "variant_id": "fr",
+      "language": "fr",
+      "text": "Bonjour le monde ! Comment allez-vous aujourd'hui ?"
+    },
+    {
+      "variant_id": "ar",
+      "language": "ar",
+      "text": "مرحباً بالعالم! كيف حالك اليوم؟"
+    }
+  ]
+}
