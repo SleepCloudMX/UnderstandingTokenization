@@ -59,7 +59,7 @@ def _setup_style() -> None:
 def plot_metrics(
     rows: list[MetricRow],
     output_path: str | Path,
-    title: str = "Character & Token Statistics",
+    title: str = "字符数 & Tokens 统计数据",
     dpi: int = 150,
 ) -> Path:
     """
@@ -119,7 +119,7 @@ def plot_metrics(
         x - bar_width / 2,
         char_counts,
         width=bar_width,
-        label="char_count",
+        label="Chars",
         color="#4878CF",
         alpha=0.85,
         zorder=3,
@@ -128,14 +128,14 @@ def plot_metrics(
         x + bar_width / 2,
         token_counts,
         width=bar_width,
-        label="token_count",
+        label="Tokens",
         color="#E87C2E",
         alpha=0.85,
         zorder=3,
     )
 
-    ax1.set_xlabel("Variant (Language)", fontsize=12, labelpad=8)
-    ax1.set_ylabel("Count", fontsize=12, labelpad=8)
+    ax1.set_xlabel("语言/语种", fontsize=12, labelpad=8)
+    ax1.set_ylabel("Chars & Tokens", fontsize=12, labelpad=8)
     ax1.set_xticks(x)
     ax1.set_xticklabels(labels, fontsize=9)
     ax1.yaxis.set_major_locator(ticker.MaxNLocator(integer=True))
@@ -171,34 +171,39 @@ def plot_metrics(
         markersize=6,
         linewidth=1.8,
         linestyle="--",
-        label="char_per_token",
+        label="字符/Token",
         zorder=4,
     )
-    ax2.set_ylabel("Chars per Token", fontsize=12, labelpad=8, color="#2CA02C")
+    ax2.set_ylabel("chars/tokens", fontsize=12, labelpad=8, color="#2CA02C")
     ax2.tick_params(axis="y", labelcolor="#2CA02C", labelsize=10)
     # 副轴下限留 0，上限留 10% 空间
     valid_cpt = [v for v in cpt_values if not (v != v)]  # filter nan
     if valid_cpt:
         ax2.set_ylim(bottom=0, top=max(valid_cpt) * 1.15)
 
-    # --- 图例合并：置于图外顶部，避免遮挡高柱 ---
+    # --- 标题：贴近图像，用轴标题而非 suptitle ---
+    ax1.set_title(title, fontsize=13, fontweight="bold", pad=40)
+
+    # --- 图例：置于标题正下方、图像顶部内侧，3 列水平排列 ---
     handles1, labels1 = ax1.get_legend_handles_labels()
     handles2, labels2 = ax2.get_legend_handles_labels()
-    fig.legend(
+    ax1.legend(
         handles1 + handles2,
         labels1 + labels2,
         loc="lower center",
-        bbox_to_anchor=(0.5, 1.0),   # 图框外顶部居中
+        bbox_to_anchor=(0.5, 1.0),   # 坐标相对于 ax1：正好在轴区顶缘下方
         ncol=3,
         fontsize=10,
-        framealpha=0.9,
+        framealpha=0.92,
         edgecolor="#cccccc",
+        borderpad=0.6,
+        handlelength=1.8,
     )
 
-    # --- 标题与布局 ---
-    # rect 给顶部留出图例空间；top=0.88 预留两行高度
-    fig.suptitle(title, fontsize=13, fontweight="bold")
-    fig.tight_layout(rect=[0, 0, 1, 0.88])
+    # --- 布局：预留标题 + 图例的空间 ---
+    fig.tight_layout()
+    # 在 tight_layout 后手动把上边界往上调一下，空出图例行高
+    fig.subplots_adjust(top=0.82)
 
     # --- 保存 ---
     out = Path(output_path)

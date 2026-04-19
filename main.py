@@ -112,7 +112,7 @@ def _resolve_output_dir(output_dir: Path, subpath: str | None) -> Path:
 def _make_chart_title(args: argparse.Namespace) -> str:
     scope = args.subpath if args.subpath else "all"
     return (
-        f"Character & Token Statistics  |  scope={scope}"
+        f"字符 & Token 统计数据  |  scope={scope}"
         f"  tokenizer={args.tokenizer}({args.model})"
     )
 
