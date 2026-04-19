@@ -134,6 +134,20 @@ python main.py
 # 输出到 output/
 ```
 
+### 内联文本（直接传入字符串）
+
+```bash
+python main.py --text "Hello world! 你好世界！😀🔥" --output-dir output/test --no-plot
+# 输出到 output/test/inline/
+```
+
+### 读取文本文件
+
+```bash
+python main.py --text-path "data/text/日月前事.txt" --output-dir output/test --no-plot
+# 输出到 output/test/日月前事/（以文件名不含扩展名命名子目录）
+```
+
 ### 批量脚本
 
 ```bat
@@ -151,8 +165,10 @@ scripts\run_all.bat gpt-4o-mini
 
 ```
 --data-dir       数据根目录（默认 data）
---output-dir     输出根目录（默认 output）
+--output-dir     输出根目录（默认 output/temp）
 --subpath        子路径过滤，如 lang/en_main（输出自动镜像同级目录）
+--text TEXT      直接传入待统计文本，跳过 data 目录扫描；与 --text-path / --data-dir 互斥
+--text-path PATH 读取 UTF-8 文本文件并统计，输出子目录以文件名不含扩展名命名；与 --text / --data-dir 互斥
 --tokenizer      tokenizer 名称（默认 tiktoken）
 --model          tiktoken 模型名（默认 gpt-4o）
 --output-prefix  输出文件名前缀（默认 results）
