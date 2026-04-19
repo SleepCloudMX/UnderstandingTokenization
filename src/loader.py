@@ -40,7 +40,10 @@ def _load_single(path: Path) -> Case | None:
     return parse_case(raw, source_file=str(path))
 
 
-def scan_data_dir(data_dir: str | Path) -> list[Case]:
+def scan_data_dir(
+    data_dir: str | Path,
+    subpath: str | None = None,
+) -> list[Case]:
     """
     递归扫描 data_dir，收集所有符合两层目录规范的 JSON 样例。
 
@@ -48,6 +51,9 @@ def scan_data_dir(data_dir: str | Path) -> list[Case]:
     ----
     data_dir : str | Path
         数据根目录路径（即 data/）。
+    subpath : str | None
+        可选的子路径过滤器，例如 "lang/en_main"。
+        仅加载该子目录下的样例；为 None 时扫描全部。
 
     返回
     ----
@@ -58,11 +64,21 @@ def scan_data_dir(data_dir: str | Path) -> list[Case]:
     if not root.exists():
         raise FileNotFoundError(f"数据目录不存在: {root}")
 
+    # 确定实际扫描的起始目录
+    if subpath:
+        scan_root = root / Path(subpath)
+        if not scan_root.exists():
+            raise FileNotFoundError(
+                f"子路径不存在: {scan_root}（--subpath 参数值: {subpath}）"
+            )
+    else:
+        scan_root = root
+
     cases: list[Case] = []
-    json_files = sorted(root.rglob("*.json"))
+    json_files = sorted(scan_root.rglob("*.json"))
 
     for path in json_files:
-        # 相对于 root 的路径各段
+        # 相对于 data root 的路径各段（保持统一的两层检验基准）
         rel_parts = path.relative_to(root).parts
         # 必须恰好是  task_type / subgroup / filename.json  三段
         if len(rel_parts) != 3:
