@@ -58,32 +58,41 @@ def _load_colors() -> list[str]:
 # ---------------------------------------------------------------------------
 
 
-def _group_segments(token_bytes: list[bytes]) -> list[tuple[str, int]]:
+def _group_segments(
+    token_bytes: list[bytes],
+    token_ids: list[int],
+) -> list[tuple[str, list[int]]]:
     """将逐 token 原始字节累积为可完整解码的 UTF-8 片段。
 
-    返回值：list of (decoded_text, token_count)
+    参数
+    ----
+    token_bytes : 每个 token 的原始字节（与 token_ids 等长）
+    token_ids   : 每个 token 的整数 ID（用于生成悬浮提示）
+
+    返回值：list of (decoded_text, ids)
         decoded_text  — 该片段对应的 Unicode 字符串（无乱码）
-        token_count   — 合并了几个 token（通常为 1；跨字节字符 > 1）
+        ids           — 该片段合并了哪些 token ID（通常 1 个；
+                        跨字节字符如汉字/Emoji 被 BPE 拆开时 > 1）
 
     算法：逐字节累积，每次尝试 UTF-8 解码；
     成功则输出片段并重置缓冲区；最终残余字节用 latin-1 兜底（理论上不会
     出现，因为完整输入是合法 UTF-8，所有字节最终必能合并成完整字符）。
     """
-    segments: list[tuple[str, int]] = []
+    segments: list[tuple[str, list[int]]] = []
     buf = b""
-    count = 0
-    for tb in token_bytes:
+    cur_ids: list[int] = []
+    for tb, tid in zip(token_bytes, token_ids):
         buf += tb
-        count += 1
+        cur_ids.append(tid)
         try:
-            segments.append((buf.decode("utf-8"), count))
+            segments.append((buf.decode("utf-8"), cur_ids))
             buf = b""
-            count = 0
+            cur_ids = []
         except UnicodeDecodeError:
             pass  # 字节序列尚不完整，继续累积
     if buf:
         # 兜底：剩余字节无法形成合法 UTF-8（极罕见），latin-1 无损呈现
-        segments.append((buf.decode("latin-1"), count))
+        segments.append((buf.decode("latin-1"), cur_ids))
     return segments
 
 
@@ -111,18 +120,22 @@ def _build_variant_md(
 
     # ---- 词元着色正文（按可解码片段着色）----
     token_bytes = tokenizer.tokenize_to_bytes(row.text)
+    token_ids   = tokenizer.encode(row.text)
     if not token_bytes:
         body = "_（空文本）_\n"
     else:
-        segments = _group_segments(token_bytes)
+        segments = _group_segments(token_bytes, token_ids)
         parts: list[str] = []
-        for i, (seg_text, _tok_count) in enumerate(segments):
+        for i, (seg_text, seg_ids) in enumerate(segments):
             color = colors[i % len(colors)]
+            # 悬浮 title：显示该片段对应的 token id（通常 1 个）
+            ids_str = ", ".join(str(tid) for tid in seg_ids)
+            title = f"tokens: {ids_str}"
             # 转义 HTML 特殊字符，保留换行为 <br>
             escaped = html.escape(seg_text).replace("\n", "<br>\n")
             parts.append(
-                f'<span style="background:{color};padding:1px 2px;border-radius:2px">'
-                f"{escaped}</span>"
+                f'<span title="{title}" style="background:{color};'
+                f'padding:1px 2px;border-radius:2px">{escaped}</span>'
             )
         body = "".join(parts) + "\n"
 
