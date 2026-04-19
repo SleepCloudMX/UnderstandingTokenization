@@ -1,10 +1,28 @@
-# PR-exp3 · Multi-Language Token Counter
+# Understanding Tokenization in LLMs
 
 批量统计多语言 / 多格式测试文本的**字符数**与 **Token 数**，生成结构化报表与可视化输出。
 
+**推荐**：直接看[报告](docs\报告.html)中的图表与讨论分析即可。如果需要上手跑测试，可以继续阅读。
+
+**参考工具**：[tiktokenizer](https://tiktokenizer.vercel.app/)、[Google AI Studio](https://aistudio.google.com/prompts/new_chat)。
+
 ---
 
-## 功能概览
+### Demo
+
+<span title="tokens: 1805" style="background:#a5f3fc;padding:1px 2px;border-radius:2px">【</span><span title="tokens: 35736, 121" style="background:#d9f99d;padding:1px 2px;border-radius:2px">鸽</span><span title="tokens: 7407" style="background:#fbcfe8;padding:1px 2px;border-radius:2px">子</span><span title="tokens: 3798, 242" style="background:#c7d2fe;padding:1px 2px;border-radius:2px">衔</span><span title="tokens: 154236" style="background:#fde68a;padding:1px 2px;border-radius:2px">枝</span><span title="tokens: 10708" style="background:#99f6e4;padding:1px 2px;border-radius:2px">之</span><span title="tokens: 2810" style="background:#fca5a5;padding:1px 2px;border-radius:2px">年</span><span title="tokens: 37157" style="background:#ddd6fe;padding:1px 2px;border-radius:2px">】<br></span><span title="tokens: 867" style="background:#bae6fd;padding:1px 2px;border-radius:2px">天</span><span title="tokens: 4286" style="background:#a7f3d0;padding:1px 2px;border-radius:2px">上</span><span title="tokens: 30360" style="background:#fcd34d;padding:1px 2px;border-radius:2px">永</span><span title="tokens: 78419" style="background:#f9a8d4;padding:1px 2px;border-radius:2px">恒</span><span title="tokens: 1616" style="background:#86efac;padding:1px 2px;border-radius:2px">的</span><span title="tokens: 15881" style="background:#93c5fd;padding:1px 2px;border-radius:2px">王</span><span title="tokens: 34158" style="background:#fecaca;padding:1px 2px;border-radius:2px">座</span><span title="tokens: 6946" style="background:#bfdbfe;padding:1px 2px;border-radius:2px">到</span><span title="tokens: 6727" style="background:#bbf7d0;padding:1px 2px;border-radius:2px">来</span><span title="tokens: 979" style="background:#fef08a;padding:1px 2px;border-radius:2px">，</span><span title="tokens: 28428" style="background:#e9d5ff;padding:1px 2px;border-radius:2px">世界</span><span title="tokens: 6209" style="background:#fed7aa;padding:1px 2px;border-radius:2px">为</span><span title="tokens: 10708" style="background:#a5f3fc;padding:1px 2px;border-radius:2px">之</span><span title="tokens: 6983, 243" style="background:#d9f99d;padding:1px 2px;border-radius:2px">焕</span><span title="tokens: 16125" style="background:#fbcfe8;padding:1px 2px;border-radius:2px">然</span><span title="tokens: 2432" style="background:#c7d2fe;padding:1px 2px;border-radius:2px">一</span><span title="tokens: 3711" style="background:#fde68a;padding:1px 2px;border-radius:2px">新</span><span title="tokens: 3414" style="background:#99f6e4;padding:1px 2px;border-radius:2px">。<br></span><span title="tokens: 119014" style="background:#fca5a5;padding:1px 2px;border-radius:2px">然后</span><span title="tokens: 7910" style="background:#ddd6fe;padding:1px 2px;border-radius:2px">真</span><span title="tokens: 15881" style="background:#bae6fd;padding:1px 2px;border-radius:2px">王</span><span title="tokens: 979" style="background:#a7f3d0;padding:1px 2px;border-radius:2px">，</span><span title="tokens: 14085" style="background:#fcd34d;padding:1px 2px;border-radius:2px">原</span><span title="tokens: 26719" style="background:#f9a8d4;padding:1px 2px;border-radius:2px">初</span><span title="tokens: 1616" style="background:#86efac;padding:1px 2px;border-radius:2px">的</span><span title="tokens: 18818" style="background:#93c5fd;padding:1px 2px;border-radius:2px">那</span><span title="tokens: 2432" style="background:#fecaca;padding:1px 2px;border-radius:2px">一</span><span title="tokens: 9838" style="background:#bfdbfe;padding:1px 2px;border-radius:2px">位</span><span title="tokens: 40914" style="background:#bbf7d0;padding:1px 2px;border-radius:2px">开始</span><span title="tokens: 5884" style="background:#fef08a;padding:1px 2px;border-radius:2px">和</span><span title="tokens: 67803" style="background:#e9d5ff;padding:1px 2px;border-radius:2px">旧</span><span title="tokens: 28428" style="background:#fed7aa;padding:1px 2px;border-radius:2px">世界</span><span title="tokens: 1616" style="background:#a5f3fc;padding:1px 2px;border-radius:2px">的</span><span title="tokens: 126207" style="background:#d9f99d;padding:1px 2px;border-radius:2px">主人</span><span title="tokens: 13932" style="background:#fbcfe8;padding:1px 2px;border-radius:2px">们</span><span title="tokens: 979" style="background:#c7d2fe;padding:1px 2px;border-radius:2px">，</span><span title="tokens: 28980" style="background:#fde68a;padding:1px 2px;border-radius:2px">七</span><span title="tokens: 9838" style="background:#99f6e4;padding:1px 2px;border-radius:2px">位</span><span title="tokens: 54436" style="background:#fca5a5;padding:1px 2px;border-radius:2px">恐</span><span title="tokens: 133986" style="background:#ddd6fe;padding:1px 2px;border-radius:2px">怖</span><span title="tokens: 1640" style="background:#bae6fd;padding:1px 2px;border-radius:2px">大</span><span title="tokens: 15881" style="background:#a7f3d0;padding:1px 2px;border-radius:2px">王</span><span title="tokens: 3044" style="background:#fcd34d;padding:1px 2px;border-radius:2px">开</span><span title="tokens: 19366" style="background:#f9a8d4;padding:1px 2px;border-radius:2px">战</span><span title="tokens: 3414" style="background:#86efac;padding:1px 2px;border-radius:2px">。<br></span><span title="tokens: 18818" style="background:#93c5fd;padding:1px 2px;border-radius:2px">那</span><span title="tokens: 54436" style="background:#fecaca;padding:1px 2px;border-radius:2px">恐</span><span title="tokens: 133986" style="background:#bfdbfe;padding:1px 2px;border-radius:2px">怖</span><span title="tokens: 134637" style="background:#bbf7d0;padding:1px 2px;border-radius:2px">的大</span><span title="tokens: 15881" style="background:#fef08a;padding:1px 2px;border-radius:2px">王</span><span title="tokens: 13932" style="background:#e9d5ff;padding:1px 2px;border-radius:2px">们</span><span title="tokens: 3221" style="background:#fed7aa;padding:1px 2px;border-radius:2px">是</span><span title="tokens: 16271" style="background:#a5f3fc;padding:1px 2px;border-radius:2px">龙</span><span title="tokens: 3414" style="background:#d9f99d;padding:1px 2px;border-radius:2px">。<br></span><span title="tokens: 14085" style="background:#fbcfe8;padding:1px 2px;border-radius:2px">原</span><span title="tokens: 26719" style="background:#c7d2fe;padding:1px 2px;border-radius:2px">初</span><span title="tokens: 1616" style="background:#fde68a;padding:1px 2px;border-radius:2px">的</span><span title="tokens: 18818" style="background:#99f6e4;padding:1px 2px;border-radius:2px">那</span><span title="tokens: 2432" style="background:#fca5a5;padding:1px 2px;border-radius:2px">一</span><span title="tokens: 9838" style="background:#ddd6fe;padding:1px 2px;border-radius:2px">位</span><span title="tokens: 23985" style="background:#bae6fd;padding:1px 2px;border-radius:2px">造</span><span title="tokens: 155198" style="background:#a7f3d0;padding:1px 2px;border-radius:2px">出了</span><span title="tokens: 39766" style="background:#fcd34d;padding:1px 2px;border-radius:2px">自己</span><span title="tokens: 2233" style="background:#f9a8d4;padding:1px 2px;border-radius:2px">发</span><span title="tokens: 17374" style="background:#86efac;padding:1px 2px;border-radius:2px">着</span><span title="tokens: 20244" style="background:#93c5fd;padding:1px 2px;border-radius:2px">光</span><span title="tokens: 1616" style="background:#fecaca;padding:1px 2px;border-radius:2px">的</span><span title="tokens: 5235" style="background:#bfdbfe;padding:1px 2px;border-radius:2px">影</span><span title="tokens: 7407" style="background:#bbf7d0;padding:1px 2px;border-radius:2px">子</span><span title="tokens: 3414" style="background:#fef08a;padding:1px 2px;border-radius:2px">。<br></span><span title="tokens: 15479" style="background:#e9d5ff;padding:1px 2px;border-radius:2px">而</span><span title="tokens: 5235" style="background:#fed7aa;padding:1px 2px;border-radius:2px">影</span><span title="tokens: 185317" style="background:#a5f3fc;padding:1px 2px;border-radius:2px">子的</span><span title="tokens: 80012" style="background:#d9f99d;padding:1px 2px;border-radius:2px">数量</span><span title="tokens: 3221" style="background:#fbcfe8;padding:1px 2px;border-radius:2px">是</span><span title="tokens: 11455" style="background:#c7d2fe;padding:1px 2px;border-radius:2px">四</span><span title="tokens: 1497" style="background:#fde68a;padding:1px 2px;border-radius:2px">。</span>
+
+> **注**：若使用 .md 或 .html 打开，**鼠标悬浮在字符上会显示对应的 token**（一个字符可能会对应多个 tokens，例如 “鸽”）。
+
+<img src="docs/image/1.2-zh_main.png" alt="1.2-zh_main" style="zoom:50%;" />
+
+> **注**：本次测试样例中，中文/文言翻译到其他语言，则文言文的 tokens 最少；英文翻译至其他语言，则英文最少。无论是哪种，需要主要文言文虽然文字简练，但一个字可能对应多个 tokens，且由于互联网上大多数数据是白话文而非文言文，且网络词汇和技术用语用文言文表达比较僵硬，或者难免有语义的偏差，因此使用 LLM 时以文言文作为问答语言的方案有待商榷。
+
+---
+
+### 项目介绍
+
+#### 功能概览
 
 | 功能 | 说明 |
 |------|------|
@@ -17,7 +35,7 @@
 
 ---
 
-## 项目结构
+#### 项目结构
 
 ```
 PR-exp3/
@@ -65,7 +83,7 @@ PR-exp3/
 
 ---
 
-## 数据格式
+#### 数据格式
 
 每个 `*.json` 文件对应一个**样例（Case）**，含若干**变体（Variant）**：
 
@@ -94,7 +112,7 @@ data/lang/en_main/001.json    ← 两层
 
 ---
 
-## 统计口径
+#### 统计口径
 
 | 指标 | 定义 |
 |------|------|
@@ -105,51 +123,49 @@ data/lang/en_main/001.json    ← 两层
 
 ---
 
-## 环境配置
+### 环境配置
 
 ```bash
-# 推荐：使用项目指定的 conda 环境（已含 tiktoken、matplotlib、seaborn）
+conda create -n ai python=3.12
 conda activate ai
-
-# 或手动安装
 pip install -r requirements.txt
 ```
 
-**Python 版本要求**：3.11+
+**Python 版本要求**：3.12+
 
 ---
 
-## 运行方式
+### 运行方式
 
-### 处理单个子任务（推荐）
+#### （1）处理单个子任务（推荐）
 
 ```bash
 python main.py --subpath lang/en_main
 # 输出自动镜像到 output/lang/en_main/
 ```
 
-### 扫描全部数据
+#### （2）扫描全部数据
 
 ```bash
 python main.py
 # 输出到 output/
 ```
 
-### 内联文本（直接传入字符串）
+#### （3）内联文本（直接传入字符串）
 
 ```bash
 python main.py --text "Hello world! 你好世界！😀🔥" --output-dir output/test --no-plot
 # 输出到 output/test/inline/
 ```
 
-### 读取文本文件
+#### （4）读取文本文件
 
 ```bash
 python main.py --text-path "data/text/日月前事.txt" --output-dir output/test --no-plot
 # 输出到 output/test/日月前事/（以文件名不含扩展名命名子目录）
 ```
 
-### 批量脚本
+#### （5）批量脚本
 
 ```bat
 rem 只跑 lang/ 下三个子组
@@ -162,7 +178,7 @@ rem 可选：指定 tiktoken 模型
 scripts\run_all.bat gpt-4o-mini
 ```
 
-### 完整 CLI 参数
+#### （6）完整 CLI 参数
 
 ```
 --data-dir       数据根目录（默认 data）
@@ -179,11 +195,11 @@ scripts\run_all.bat gpt-4o-mini
 
 ---
 
-## 输出文件
+### 输出文件
 
 每次运行输出两类文件：
 
-### 汇总报表
+#### （1）汇总报表
 
 | 文件 | 说明 |
 |------|------|
@@ -192,7 +208,7 @@ scripts\run_all.bat gpt-4o-mini
 | `results.md` | Markdown 统计表格（GitHub 友好） |
 | `results.png` | 学术图表（分组柱 + 双纵轴折线，按 token 数升序） |
 
-### 词元着色 Markdown（子目录 `<case_stem>/`）
+#### （2）词元着色 Markdown（子目录 `<case_stem>/`）
 
 ```
 output/lang/en_main/
@@ -224,7 +240,7 @@ chars = 1139, tokens = 219, chars/tokens = 5.20
 
 ---
 
-## 运行单元测试
+### 运行单元测试
 
 ```bash
 python -m pytest tests/ -v
@@ -242,9 +258,9 @@ python -m pytest tests/ -v
 
 ---
 
-## 扩展指南
+### 扩展指南
 
-### 新增 tokenizer
+#### （1）新增 tokenizer
 
 在 `src/tokenizer.py` 继承 `BaseTokenizer` 并注册：
 
@@ -261,17 +277,17 @@ _REGISTRY["my_tok"] = MyTokenizer
 
 之后 `--tokenizer my_tok` 即可使用，无需修改其他文件。
 
-### 新增任务类型
+#### （2）新增任务类型
 
 直接在 `data/` 下创建目录和 JSON 文件，无需修改代码，`loader.py` 会自动发现。
 
-### 新增指标
+#### （3）新增指标
 
 修改 `src/metrics.py` 的 `MetricRow` dataclass 与 `_compute_metrics()`；`exporter.py` 通过 `dataclasses.asdict()` 自动将新字段写入 CSV。
 
 ---
 
-## 设计说明
+### 设计说明
 
 - **字节级分段渲染**：tiktoken（GPT 系列）是字节级 BPE，一个非 ASCII 字符有时跨多个 token 存储。`variant_exporter._group_segments()` 累积每个 token 的原始字节，直到字节序列能完整解码为 UTF-8 再输出一个 `<span>`，从根本上杜绝替换字符（`\ufffd`）。
 - **subpath 镜像输出**：`--subpath lang/en_main` 将结果写到 `output/lang/en_main/`，目录结构与 `data/` 完全对应，便于批量比较与脚本遍历。
