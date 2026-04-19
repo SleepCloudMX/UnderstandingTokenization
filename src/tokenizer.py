@@ -93,10 +93,19 @@ class TiktokenTokenizer(BaseTokenizer):
         if not text:
             return []
         token_ids = self._enc.encode(text, disallowed_special=())
-        return [
-            self._enc.decode([tid])
-            for tid in token_ids
-        ]
+        # 不能使用 self._enc.decode([tid])：其内部以 errors="replace" 调用
+        # bytes.decode("utf-8")，对 BPE 切出的不完整多字节序列会产生 \ufffd。
+        # 改用 decode_single_token_bytes 获取原始字节，再手动解码：
+        #   - 完整 UTF-8 序列（绝大多数情况）→ 直接 decode("utf-8")
+        #   - 不完整字节序列（BPE 跨字节切分）→ decode("latin-1") 无损保留字节值
+        result: list[str] = []
+        for tid in token_ids:
+            raw: bytes = self._enc.decode_single_token_bytes(tid)
+            try:
+                result.append(raw.decode("utf-8"))
+            except UnicodeDecodeError:
+                result.append(raw.decode("latin-1"))
+        return result
 
     @property
     def model(self) -> str:
