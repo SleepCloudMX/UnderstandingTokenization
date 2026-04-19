@@ -1,13 +1,17 @@
 """
 loader.py — 扫描 data/ 目录并加载所有测试样例
 
-目录规范：
+目录规范（灵活层级）：
     data/
-        <task_type>/          ← 第一层：任务类型
-            <subgroup>/       ← 第二层：子类别
-                *.json        ← 单个样例文件
+        <task_type>/          ← 第一层：任务类型（对应 JSON 中 task_type 字段）
+            *.json            ← 单层结构（如 code/001.json）
+        <task_type>/
+            <subgroup>/       ← 两层结构（如 lang/en_main/001.json）
+                *.json
 
-非 .json 文件、不符合两层目录结构的文件将被跳过，并输出警告。
+层级深度可任意，JSON 文件中的 task_type / subgroup 字段为准；
+路径层级仅用于辅助扫描，不强制校验目录深度。
+非 .json 文件将被跳过。
 """
 
 from __future__ import annotations
@@ -45,14 +49,14 @@ def scan_data_dir(
     subpath: str | None = None,
 ) -> list[Case]:
     """
-    递归扫描 data_dir，收集所有符合两层目录规范的 JSON 样例。
+    递归扫描 data_dir，收集所有 JSON 样例文件。
 
     参数
     ----
     data_dir : str | Path
         数据根目录路径（即 data/）。
     subpath : str | None
-        可选的子路径过滤器，例如 "lang/en_main"。
+        可选的子路径过滤器，例如 "lang/en_main" 或 "code"。
         仅加载该子目录下的样例；为 None 时扫描全部。
 
     返回
@@ -78,15 +82,6 @@ def scan_data_dir(
     json_files = sorted(scan_root.rglob("*.json"))
 
     for path in json_files:
-        # 相对于 data root 的路径各段（保持统一的两层检验基准）
-        rel_parts = path.relative_to(root).parts
-        # 必须恰好是  task_type / subgroup / filename.json  三段
-        if len(rel_parts) != 3:
-            warnings.warn(
-                f"[跳过] {path} 不符合 task_type/subgroup/file.json 结构"
-            )
-            continue
-
         case = _load_single(path)
         if case is not None:
             cases.append(case)
