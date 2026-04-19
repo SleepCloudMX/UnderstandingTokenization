@@ -44,6 +44,16 @@ class BaseTokenizer(ABC):
         """将文本切分为 token 字符串列表（解码后），空文本返回空列表。"""
         ...
 
+    @abstractmethod
+    def tokenize_to_bytes(self, text: str) -> list[bytes]:
+        """将文本切分为每个 token 的原始字节列表。
+
+        与 tokenize_to_strings 不同，此方法返回未经解码的原始字节，
+        用于需要感知字节边界的场景（如跨 token 的多字节字符分段渲染）。
+        空文本返回空列表。
+        """
+        ...
+
     def count_tokens(self, text: str) -> int:
         """返回 token 数量，对空文本安全。"""
         if not text:
@@ -106,6 +116,12 @@ class TiktokenTokenizer(BaseTokenizer):
             except UnicodeDecodeError:
                 result.append(raw.decode("latin-1"))
         return result
+
+    def tokenize_to_bytes(self, text: str) -> list[bytes]:
+        if not text:
+            return []
+        token_ids = self._enc.encode(text, disallowed_special=())
+        return [self._enc.decode_single_token_bytes(tid) for tid in token_ids]
 
     @property
     def model(self) -> str:
