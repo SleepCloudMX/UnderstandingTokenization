@@ -51,6 +51,7 @@ PR-exp3/
 │   └── colors.json              # 20 色循环配色表
 │
 ├── scripts/
+|   ├── demo.bat                 # 使用 text 和 text_path 参数调用 main.py的示例
 │   ├── lang.bat                 # 批量运行 lang/ 下三个子任务
 │   └── run_all.bat              # 批量运行全部 8 个子任务
 │
@@ -218,7 +219,7 @@ chars = 1139, tokens = 219, chars/tokens = 5.20
 ```
 
 - 着色单位为**可解码显示片段**（1 片段 = 1 或多个 token），避免 BPE 跨字节切分导致字符分裂
-- 鼠标悬停 `<span>` 时显示对应的 token ID（多个用逗号分隔）
+- **鼠标悬停** `<span>` 时**显示对应的 token ID**（多个用逗号分隔）
 - 20 种低饱和度配色循环，相邻片段颜色对比明显、整体柔和
 
 ---
