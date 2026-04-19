@@ -1,0 +1,54 @@
+{
+  "case_id": "lang_en_main_004",
+  "task_type": "lang",
+  "subgroup": "zhc_main",
+  "description": "Peach Blossom Spring (Tao Yuanming) in 9 languages",
+  "tags": ["classical_chinese", "literature", "multilingual"],
+  "variants": [
+    {
+      "variant_id": "文言文",
+      "language": "zh-classical",
+      "text": "晋太元中，武陵人捕鱼为业。缘溪行，忘路之远近。忽逢桃花林，夹岸数百步，中无杂树，芳草鲜美，落英缤纷。渔人甚异之，复前行，欲穷其林。林尽水源，便得一山，山有小口，仿佛若有光。便舍船，从口入。初极狭，才通人。复行数十步，豁然开朗。土地平旷，屋舍俨然，有良田、美池、桑竹之属。阡陌交通，鸡犬相闻。其中往来种作，男女衣着，悉如外人。黄发垂髫，并怡然自乐。见渔人，乃大惊，问所从来。具答之。便要还家，设酒杀鸡作食。村中闻有此人，咸来问讯。自云先世避秦时乱，率妻子邑人来此绝境，不复出焉，遂与外人间隔。问今是何世，乃不知有汉，无论魏晋。此人一一为具言所闻，皆叹惋。余人各复延至其家，皆出酒食。停数日，辞去。此中人语云：“不足为外人道也。”既出，得其船，便扶向路，处处志之。及郡下，诣太守，说如此。太守即遣人随其往，寻向所志，遂迷，不复得路。南阳刘子骥，高尚士也，闻之，欣然规往。未果，寻病终。后遂无问津者。"
+    },
+    {
+      "variant_id": "简体中文",
+      "language": "zh-Hans",
+      "text": "东晋太元年间，有个武陵人以捕鱼为业。他沿着溪水前行，忘记了路程的远近。忽然遇到一片桃花林，夹在两岸数百步，中间没有其他树木，芳草鲜美，落花纷飞。渔人对此感到十分惊奇，又继续前行，想要走到林子的尽头。林子尽头是水源，便出现一座山，山上有个小洞口，仿佛有光。于是他舍弃船只，从洞口进入。起初非常狭窄，只能容一人通过。再走数十步，忽然开阔明亮。土地平坦开阔，房屋整齐，有良田、美池、桑树和竹子之类。田间小路交错相通，鸡犬之声相闻。人们在其中往来耕作，男女衣着与外界相同。老人和孩子都安闲快乐。见到渔人，大家十分惊讶，问他从哪里来。他一一作答。于是有人邀请他回家，摆酒杀鸡款待。村中听说有这个人，都来打听情况。他们说祖先为躲避秦朝战乱，带着妻子儿女和乡人来到这里，从此不再出去，于是与外界隔绝。他们问现在是什么朝代，竟不知道有汉，更不用说魏晋。渔人一一告诉他们外面的情况，大家都感叹惋惜。其他人又邀请他到各自家中，都拿出酒食招待。他停留了几天，便告辞离开。这里的人告诉他说：“这里的情况不值得对外人说。”离开后，他找到了自己的船，沿原路返回，处处做了标记。到了郡城，去拜见太守，讲述了这些情况。太守立即派人跟他前往，寻找之前的标记，却迷失了方向，再也找不到路。南阳的刘子骥，是个高尚之士，听说这件事后，高兴地打算前往，却未能成行，不久便病死了。从此再也没有人去探访那个地方。"
+    },
+    {
+      "variant_id": "繁体中文",
+      "language": "zh-Hant",
+      "text": "東晉太元年間，有個武陵人以捕魚為業。他沿著溪水前行，忘記了路程的遠近。忽然遇到一片桃花林，夾在兩岸數百步，中間沒有其他樹木，芳草鮮美，落花紛飛。漁人對此感到十分驚奇，又繼續前行，想要走到林子的盡頭。林子盡頭是水源，便出現一座山，山上有個小洞口，彷彿有光。於是他捨棄船隻，從洞口進入。起初非常狹窄，只能容一人通過。再走數十步，忽然開闊明亮。土地平坦開闊，房屋整齊，有良田、美池、桑樹和竹子之類。田間小路交錯相通，雞犬之聲相聞。人們在其中往來耕作，男女衣著與外界相同。老人和孩子都安閒快樂。見到漁人，大家十分驚訝，問他從哪裡來。他一一作答。於是有人邀請他回家，擺酒殺雞款待。村中聽說有這個人，都來打聽情況。他們說祖先為躲避秦朝戰亂，帶著妻子兒女和鄉人來到這裡，從此不再出去，於是與外界隔絕。他們問現在是什麼朝代，竟不知道有漢，更不用說魏晉。漁人一一告訴他們外面的情況，大家都感嘆惋惜。其他人又邀請他到各自家中，都拿出酒食招待。他停留了幾天，便告辭離開。這裡的人告訴他說：「這裡的情況不值得對外人說。」離開後，他找到了自己的船，沿原路返回，處處做了標記。到了郡城，去拜見太守，講述了這些情況。太守立即派人跟他前往，尋找之前的標記，卻迷失了方向，再也找不到路。南陽的劉子驥，是個高尚之士，聽說這件事後，高興地打算前往，卻未能成行，不久便病死了。從此再也沒有人去探訪那個地方。"
+    },
+    {
+      "variant_id": "英文",
+      "language": "en",
+      "text": "During the Taiyuan era of the Eastern Jin, a man from Wuling made a living by fishing. Following a stream, he forgot how far he had gone. Suddenly he came upon a grove of peach trees, stretching along both banks for hundreds of steps, with no other trees, fragrant grass, and falling petals scattered everywhere. The fisherman found this very strange and continued onward, wishing to reach the end of the grove. At the end of the grove was the source of the stream, where he found a mountain with a small opening, from which light seemed to emerge. He abandoned his boat and entered. At first it was very narrow, barely allowing passage for one person. After several dozen steps, it suddenly opened into a broad space. The land was flat and open, with neat houses, fertile fields, beautiful ponds, mulberry trees, and bamboo. Paths crossed one another, and the sounds of chickens and dogs could be heard. People came and went, farming and working, dressed just like those outside. The elderly and children alike were content and happy. Seeing the fisherman, they were greatly astonished and asked where he came from. He answered in detail. They invited him to their homes, prepared wine, killed chickens, and served food. When others in the village heard of him, they all came to ask questions. They said their ancestors had fled the chaos of the Qin dynasty and came here with their families, never leaving again, thus becoming isolated from the outside world. When asked what era it was, they did not even know of the Han, let alone Wei or Jin. The fisherman told them everything he knew, and they all sighed in amazement. Others invited him as well and offered food and drink. After staying for several days, he took his leave. The people told him, \"This place is not worth telling outsiders about.\" After leaving, he found his boat and followed his original route, marking it along the way. Upon reaching the prefecture, he reported everything to the governor, who sent people to follow him, but they became lost and could no longer find the way. Liu Ziji of Nanyang, a noble man, heard of this and planned to go, but before he could, he fell ill and died. After that, no one ever sought that place again."
+    },
+    {
+      "variant_id": "日文",
+      "language": "ja",
+      "text": "東晋の太元年間、武陵のある男は漁を生業としていた。彼は川に沿って進み、どれほど進んだかを忘れてしまった。突然、両岸に数百歩続く桃の林に出会った。ほかの木はなく、草は香しく美しく、花びらが舞っていた。漁師はこれを不思議に思い、さらに進んで林の果てを見ようとした。林の尽きるところは水源で、そこに山があり、小さな穴があって、かすかに光が見えた。船を捨てて中に入ると、初めは狭く人一人が通れるほどだったが、数十歩進むと突然開けた。土地は平らで広く、家々は整然と並び、良い田畑や池、桑や竹があった。道は縦横に通じ、鶏や犬の声が聞こえた。人々は行き来して働き、衣服は外の人と同じであった。老人も子供も楽しげであった。漁師を見ると人々は驚き、どこから来たのかを尋ねた。彼は詳しく答えた。人々は彼を家に招き、酒を出し鶏を殺してもてなした。村人たちは皆集まり話を聞いた。彼らは祖先が秦の乱を避けてここに来て以来、外界と隔絶していると言った。今の時代を問うと、漢も知らず魏晋も知らなかった。漁師は外のことを語り、人々は皆嘆いた。数日滞在した後、彼は去った。人々は「このことは外に言わないでほしい」と言った。外に出て船に戻り、道に印をつけた。郡に着いて太守に報告すると、太守は人を遣わして案内させたが、道に迷い再び見つけることはできなかった。南陽の劉子驥は高潔な人物で、これを聞いて行こうとしたが果たせず、まもなく病死した。その後、この地を訪ねる者はいなくなった。"
+    },
+    {
+      "variant_id": "韩文",
+      "language": "ko",
+      "text": "동진 태원 연간에 무릉의 한 사람이 어업을 생업으로 삼고 있었다. 그는 시냇물을 따라 가다가 얼마나 왔는지 잊어버렸다. 갑자기 양쪽 강가를 따라 수백 보 이어진 복숭아나무 숲을 만났다. 다른 나무는 없고 풀은 향기롭고 아름다우며 꽃잎이 흩날렸다. 그는 이를 이상하게 여겨 계속 나아가 숲의 끝을 보려 했다. 숲이 끝나는 곳은 물의 근원이었고, 그곳에 산이 있었으며 작은 구멍에서 빛이 비치는 듯했다. 그는 배를 버리고 들어갔다. 처음에는 매우 좁아 한 사람만 통과할 수 있었으나 수십 보를 가자 갑자기 넓어졌다. 땅은 평탄하고 넓으며 집들이 단정하고 좋은 밭과 연못, 뽕나무와 대나무가 있었다. 길은 사방으로 통하고 닭과 개의 소리가 들렸다. 사람들은 오가며 농사짓고 옷차림은 바깥 사람들과 같았다. 노인과 아이들 모두 즐겁게 살고 있었다. 어부를 보자 놀라 어디서 왔는지 물었고 그는 자세히 대답했다. 사람들은 그를 집으로 초대해 술과 음식을 대접했다. 마을 사람들은 모두 모여 이야기를 들었다. 그들은 조상이 진나라의 난을 피해 이곳에 와서 다시 나가지 않아 외부와 단절되었다고 했다. 지금이 어떤 시대인지 묻자 한나라조차 모르고 위진도 몰랐다. 어부가 외부 이야기를 하자 모두 탄식했다. 며칠 머문 뒤 그는 떠났다. 사람들은 이 일을 밖에 알리지 말라고 했다. 나와서 길에 표시를 하며 돌아갔으나 다시 찾을 수 없었다. 남양의 유자기는 이 이야기를 듣고 가려 했으나 이루지 못하고 병으로 죽었다. 이후로는 이곳을 찾는 사람이 없었다."
+    },
+    {
+      "variant_id": "意大利语",
+      "language": "it",
+      "text": "Durante l'era Taiyuan della dinastia Jin orientale, un uomo di Wuling viveva di pesca. Seguendo un ruscello, dimenticò quanto lontano fosse arrivato. All'improvviso incontrò un bosco di peschi che si estendeva per centinaia di passi lungo entrambe le rive, senza altri alberi, con erba profumata e petali caduti ovunque. Il pescatore trovò tutto ciò molto strano e continuò, desiderando raggiungere la fine del bosco. Alla fine del bosco c'era la sorgente del ruscello e una montagna con una piccola apertura da cui sembrava provenire luce. Abbandonò la barca ed entrò. All'inizio era molto stretto, appena sufficiente per una persona. Dopo alcune decine di passi si aprì improvvisamente. La terra era piatta e ampia, con case ordinate, campi fertili, stagni, gelsi e bambù. I sentieri si incrociavano e si udivano galli e cani. Le persone lavoravano e si muovevano, vestite come quelle del mondo esterno. Vecchi e bambini erano felici. Vedendo il pescatore, furono sorpresi e gli chiesero da dove venisse. Egli rispose in dettaglio. Lo invitarono nelle loro case e lo accolsero con cibo e vino. Gli abitanti dissero che i loro antenati erano fuggiti dai disordini della dinastia Qin e si erano stabiliti lì senza più uscire, restando isolati. Non conoscevano nemmeno la dinastia Han, tanto meno Wei o Jin. Il pescatore raccontò loro ciò che sapeva e tutti sospirarono. Dopo alcuni giorni se ne andò. Gli dissero di non parlarne all'esterno. Tornato indietro, segnò il percorso ma non riuscì più a ritrovarlo. Un uomo di nome Liu Ziji voleva andarci, ma morì prima di riuscirci. Da allora nessuno vi fece più ritorno."
+    },
+    {
+      "variant_id": "芬兰语",
+      "language": "fi",
+      "text": "Itäisen Jinin Taiyuan-kaudella Wulingista kotoisin oleva mies eli kalastamalla. Seuratessaan puroa hän unohti, kuinka pitkälle oli kulkenut. Yhtäkkiä hän kohtasi persikkapuiden metsän, joka ulottui satojen askelten matkan molemmilla rannoilla, ilman muita puita, tuoksuvien ruohojen ja putoavien terälehtien keskellä. Kalastaja piti tätä hyvin kummallisena ja jatkoi matkaa haluten nähdä metsän lopun. Metsän päässä oli veden lähde ja vuori, jossa oli pieni aukko, josta näytti tulevan valoa. Hän jätti veneensä ja meni sisään. Aluksi tila oli hyvin kapea, vain yhden ihmisen kuljettavissa, mutta muutaman kymmenen askeleen jälkeen se avautui äkisti. Maa oli tasainen ja laaja, talot järjestyksessä, ja siellä oli peltoja, lampia, mulperipuita ja bambua. Polut risteilivät ja kanojen ja koirien ääni kuului. Ihmiset liikkuivat ja työskentelivät, pukeutuneina kuten ulkomaailman ihmiset. Vanhat ja nuoret elivät onnellisina. Nähdessään kalastajan he hämmästyivät ja kysyivät, mistä hän tuli. Hän vastasi yksityiskohtaisesti. He kutsuivat hänet kotiinsa ja tarjosivat ruokaa ja juomaa. He kertoivat esi-isiensä paenneen Qin-dynastian levottomuuksia ja jääneen sinne, eristyksiin ulkomaailmasta. He eivät tienneet edes Han-dynastiasta, saati Wei tai Jin. Kalastaja kertoi ulkomaailmasta ja he huokaisivat. Muutaman päivän jälkeen hän lähti. Hänelle sanottiin, ettei tästä paikasta tulisi kertoa ulkopuolisille. Hän merkitsi paluumatkansa, mutta ei enää löytänyt paikkaa. Liu Ziji kuuli siitä ja aikoi lähteä, mutta kuoli ennen sitä. Sen jälkeen kukaan ei enää etsinyt paikkaa."
+    },
+    {
+      "variant_id": "阿拉伯语",
+      "language": "ar",
+      "text": "في عهد تاييوان من أسرة جين الشرقية، كان رجل من وولينغ يعيش على الصيد. بينما كان يتبع مجرى النهر، نسي مدى بعده. فجأة صادف غابة من أشجار الخوخ تمتد على ضفتي النهر لمئات الخطوات، بلا أشجار أخرى، مع عشب عطِر وبتلات متناثرة. وجد الصياد ذلك غريبًا جدًا واستمر في التقدم، راغبًا في رؤية نهاية الغابة. عند نهايتها وجد منبع الماء وجبلًا به فتحة صغيرة يخرج منها نور. ترك قاربه ودخل. في البداية كان المكان ضيقًا للغاية، بالكاد يمر منه شخص واحد، ثم بعد عشرات الخطوات انفتح فجأة. كانت الأرض واسعة ومسطحة، والمنازل منظمة، مع حقول وبرك وأشجار توت وخيزران. كانت الطرق متقاطعة وتُسمع أصوات الدجاج والكلاب. كان الناس يعملون ويتنقلون، وملابسهم مثل ملابس أهل الخارج. كان الشيوخ والأطفال سعداء. عندما رأوا الصياد اندهشوا وسألوه من أين جاء، فأجابهم بالتفصيل. دعوه إلى بيوتهم وقدموا له الطعام والشراب. قالوا إن أسلافهم هربوا من اضطرابات أسرة تشين وجاؤوا إلى هذا المكان المنعزل ولم يغادروه، فانفصلوا عن العالم الخارجي. وعندما سُئلوا عن العصر الحالي، لم يعرفوا حتى أسرة هان، فضلاً عن وي أو جين. أخبرهم الصياد بما يعرف، فتنهدوا جميعًا. بعد بضعة أيام غادر. قالوا له ألا يخبر أحدًا عن هذا المكان. عند عودته وضع علامات على الطريق، لكنه لم يتمكن من العثور عليه مرة أخرى. سمع ليو زيجي بالأمر وأراد الذهاب، لكنه توفي قبل أن يتمكن. ومنذ ذلك الحين لم يعد أحد يبحث عن ذلك المكان."
+    }
+  ]
+}

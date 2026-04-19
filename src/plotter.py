@@ -141,6 +141,14 @@ def plot_metrics(
     ax1.yaxis.set_major_locator(ticker.MaxNLocator(integer=True))
     ax1.tick_params(axis="y", labelsize=10)
     ax1.set_ylim(bottom=0)
+    ax1.grid(
+        axis="y",
+        linestyle="--",
+        linewidth=0.8,
+        alpha=0.5,
+        zorder=0,
+    )
+    ax1.grid(axis="x", visible=False)
 
     # 柱顶数值标注（仅在柱数不多时显示，避免拥挤）
     if n <= 12:
@@ -175,6 +183,16 @@ def plot_metrics(
         zorder=4,
     )
     ax2.set_ylabel("chars/tokens", fontsize=12, labelpad=8, color="#2CA02C")
+    ax2.spines["right"].set_color("#2CA02C")
+    ax2.grid(
+        axis="y",
+        linestyle="--",
+        linewidth=0.8,
+        color="#2CA02C",
+        alpha=0.3,
+        zorder=1,
+    )
+    ax2.grid(axis="x", visible=False)
     ax2.tick_params(axis="y", labelcolor="#2CA02C", labelsize=10)
     # 副轴下限留 0，上限留 10% 空间
     valid_cpt = [v for v in cpt_values if not (v != v)]  # filter nan

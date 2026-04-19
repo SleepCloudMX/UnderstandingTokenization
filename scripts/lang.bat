@@ -15,7 +15,7 @@ set MODEL=%~1
 if "%MODEL%"=="" set MODEL=gpt-4o
 
 rem ---- subpath list ----
-set SUBPATHS=lang/en_main lang/zh_main
+set SUBPATHS=lang/en_main lang/zh_main lang/zhc_main
 
 echo ============================================================
 echo  lang.bat  ^|  tokenizer=tiktoken  model=%MODEL%
