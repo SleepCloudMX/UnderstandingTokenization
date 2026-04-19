@@ -12,6 +12,9 @@ python main.py --subpath lang/en_main
 # 直接传入文本，无须 data 目录
 python main.py --text "Hello world!😀" --output-dir output/test
 
+# 读取文本文件，无须 data 目录
+python main.py --text-path "data/text/日月前事.txt" --output-dir output/test
+
 # 完整参数
 python main.py --subpath lang/en_main --data-dir data --output-dir output \
                --tokenizer tiktoken --model gpt-4o --output-prefix results
@@ -53,7 +56,17 @@ def build_parser() -> argparse.ArgumentParser:
         metavar="TEXT",
         help=(
             "直接传入待统计文本，跳过 data 目录扫描。"
-            "与 --data-dir / --subpath 互斥。"
+            "与 --data-dir / --subpath / --text-path 互斥。"
+        ),
+    )
+    parser.add_argument(
+        "--text-path",
+        default=None,
+        metavar="PATH",
+        help=(
+            "读取指定文本文件（UTF-8）并统计，跳过 data 目录扫描。"
+            "输出子目录以文件名（不含扩展名）命名。"
+            "与 --data-dir / --subpath / --text 互斥。"
         ),
     )
     parser.add_argument(
@@ -127,6 +140,8 @@ def _make_chart_title(args: argparse.Namespace) -> str:
     if getattr(args, "text", None) is not None:
         preview = args.text[:30] + ("..." if len(args.text) > 30 else "")
         scope = f"inline: {preview!r}"
+    elif getattr(args, "text_path", None) is not None:
+        scope = f"file: {Path(args.text_path).name}"
     else:
         scope = args.subpath if args.subpath else "all"
     return (
@@ -151,8 +166,11 @@ def run(args: argparse.Namespace) -> int:
     output_dir = _resolve_output_dir(Path(args.output_dir), args.subpath)
 
     # ------------------------------------------------------------------
-    # 步骤 1：获取样例（文件扫描 或 --text 内联模式）
+    # 步骤 1：获取样例（文件扫描 、--text 内联模式、--text-path 文件模式）
     # ------------------------------------------------------------------
+    if args.text is not None and getattr(args, "text_path", None) is not None:
+        print("错误: --text 与 --text-path 不可同时使用。", file=sys.stderr)
+        return 1
     if args.text is not None:
         # 内联模式：直接用命令行文本构造单个合成 Case
         if args.subpath:
@@ -173,6 +191,38 @@ def run(args: argparse.Namespace) -> int:
                     )
                 ],
                 source_file="inline",   # stem="inline"，用作子目录名
+            )
+        ]
+    elif getattr(args, "text_path", None) is not None:
+        # 文件模式：读取 UTF-8 文本文件
+        if args.subpath:
+            print("警告: --text-path 模式下 --subpath 参数无效，已忽略。", file=sys.stderr)
+        text_file = Path(args.text_path)
+        if not text_file.exists():
+            print(f"错误: 文件不存在: {text_file}", file=sys.stderr)
+            return 1
+        try:
+            file_text = text_file.read_text(encoding="utf-8")
+        except OSError as exc:
+            print(f"错误: 无法读取文件 {text_file}: {exc}", file=sys.stderr)
+            return 1
+        variant_id = text_file.stem          # 文件名（不含扩展名）作为变体 ID
+        print(f"[1/6] 文本文件模式: {text_file}  ({len(file_text)} 字符)")
+        cases = [
+            Case(
+                case_id=f"file_{variant_id}",
+                task_type="file",
+                subgroup="text",
+                description=f"text from file: {text_file.name}",
+                tags=[],
+                variants=[
+                    Variant(
+                        variant_id=variant_id,
+                        language="auto",
+                        text=file_text,
+                    )
+                ],
+                source_file=str(text_file),  # stem = 文件名，用作子目录名
             )
         ]
     else:
