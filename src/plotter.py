@@ -20,16 +20,40 @@ matplotlib.use("Agg")
 
 # 尝试使用 seaborn 样式；若未安装则回退到 matplotlib 内置样式
 def _setup_style() -> None:
+    import matplotlib as mpl
     import matplotlib.pyplot as plt
+    import matplotlib.font_manager as fm
+
+    # 通过路径查找 CJK 字体（优先 Microsoft YaHei / SimHei），
+    # 注册并设为全局字体，保证中日韩标签正常渲染
+    _CJK_PATHS = [
+        r"C:\Windows\Fonts\msyh.ttc",    # Microsoft YaHei（Win 内置）
+        r"C:\Windows\Fonts\simhei.ttf",  # SimHei
+        r"C:\Windows\Fonts\simsun.ttc",  # SimSun
+        "/System/Library/Fonts/PingFang.ttc",       # macOS
+        "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",  # Linux
+    ]
+    _font_set = False
+    for path in _CJK_PATHS:
+        import os
+        if os.path.exists(path):
+            fm.fontManager.addfont(path)
+            prop = fm.FontProperties(fname=path)
+            mpl.rcParams["font.family"] = prop.get_name()
+            _font_set = True
+            break
 
     try:
         import seaborn as sns  # type: ignore[import]
         sns.set_theme(style="whitegrid", font_scale=1.1)
+        # seaborn 会重置 font.family，需重新设置
+        if _font_set:
+            mpl.rcParams["font.family"] = prop.get_name()  # type: ignore[possibly-undefined]
     except ImportError:
         try:
             plt.style.use("seaborn-v0_8-whitegrid")
         except OSError:
-            pass  # matplotlib 版本不含该样式时静默跳过
+            pass
 
 
 def plot_metrics(
@@ -157,21 +181,24 @@ def plot_metrics(
     if valid_cpt:
         ax2.set_ylim(bottom=0, top=max(valid_cpt) * 1.15)
 
-    # --- 图例合并 ---
+    # --- 图例合并：置于图外顶部，避免遮挡高柱 ---
     handles1, labels1 = ax1.get_legend_handles_labels()
     handles2, labels2 = ax2.get_legend_handles_labels()
-    ax1.legend(
+    fig.legend(
         handles1 + handles2,
         labels1 + labels2,
-        loc="upper left",
+        loc="lower center",
+        bbox_to_anchor=(0.5, 1.0),   # 图框外顶部居中
+        ncol=3,
         fontsize=10,
         framealpha=0.9,
         edgecolor="#cccccc",
     )
 
     # --- 标题与布局 ---
-    fig.suptitle(title, fontsize=14, fontweight="bold", y=1.01)
-    fig.tight_layout()
+    # rect 给顶部留出图例空间；top=0.88 预留两行高度
+    fig.suptitle(title, fontsize=13, fontweight="bold")
+    fig.tight_layout(rect=[0, 0, 1, 0.88])
 
     # --- 保存 ---
     out = Path(output_path)
