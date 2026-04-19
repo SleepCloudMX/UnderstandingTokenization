@@ -1,52 +1,52 @@
 {
-  "case_id": "lang_en_main_003",
+  "case_id": "lang_en_main_001",
   "task_type": "lang",
   "subgroup": "en_main",
   "description": "Abstract of 'Attention Is All You Need' (Vaswani et al., 2017) in 9 languages",
   "tags": ["nlp", "transformer", "abstract", "multilingual"],
   "variants": [
     {
-      "variant_id": "en",
+      "variant_id": "英文",
       "language": "en",
       "text": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks that include an encoder and a decoder. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles, by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature. We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data."
     },
     {
-      "variant_id": "zh_hans",
+      "variant_id": "简体中文",
       "language": "zh-Hans",
       "text": "当前主流的序列转换模型基于复杂的循环神经网络或卷积神经网络，这些模型包含编码器和解码器。表现最好的模型还通过注意力机制连接编码器和解码器。我们提出了一种新的简单网络架构——Transformer，该架构完全基于注意力机制，彻底去除了循环和卷积。\n在两个机器翻译任务上的实验表明，这些模型在质量上更优，同时具有更强的并行性，并且训练所需时间显著减少。我们的模型在 WMT 2014 英译德任务上取得了 28.4 的 BLEU 分数，比现有最佳结果（包括集成模型）提高了超过 2 BLEU。在 WMT 2014 英译法任务上，我们的模型在 8 块 GPU 上训练 3.5 天后，取得了 41.8 的 BLEU 分数，建立了新的单模型最优结果，其训练成本仅为文献中最佳模型的一小部分。\n我们还表明，Transformer 能很好地泛化到其他任务，在大规模和小规模训练数据条件下都能成功应用于英文句法分析任务。"
     },
     {
-      "variant_id": "zh_hant",
+      "variant_id": "繁体中文",
       "language": "zh-Hant",
       "text": "當前主流的序列轉換模型基於複雜的循環神經網路或卷積神經網路，這些模型包含編碼器與解碼器。表現最佳的模型還透過注意力機制連接編碼器與解碼器。我們提出一種新的簡單網路架構——Transformer，該架構完全基於注意力機制，並完全去除循環與卷積。\n在兩個機器翻譯任務上的實驗顯示，這些模型在品質上更優，同時具備更強的並行能力，且訓練時間顯著縮短。我們的模型在 WMT 2014 英德翻譯任務中達到 28.4 的 BLEU 分數，比現有最佳結果（包括集成模型）提升超過 2 BLEU。在 WMT 2014 英法翻譯任務中，我們的模型在 8 張 GPU 上訓練 3.5 天後，達到 41.8 的 BLEU 分數，建立了新的單模型最佳結果，其訓練成本僅為文獻中最佳模型的一小部分。\n我們亦展示了 Transformer 能良好泛化至其他任務，在大規模與小規模訓練資料下，均能成功應用於英文句法分析。"
     },
     {
-      "variant_id": "zh_classical",
+      "variant_id": "文言文",
       "language": "zh-classical",
       "text": "今之主流序列转换模型，皆基于复杂之循环神经网络或卷积神经网络，内含编码器与解码器。其优者，复以注意力机制连接二者。今我等提出一新而简之网络架构，名曰 Transformer，唯以注意力机制为本，尽去循环与卷积。\n于两机器翻译任务之实验，显示此类模型于质量为优，且更利并行，所需训练时间亦大为减少。我模型于 WMT 2014 英译德任务中得 BLEU 二十八点四，较旧有最佳结果（含集成）高逾二分。于英译法任务中，以八 GPU 训练三日半，得 BLEU 四十一点八，创单模型之新高，而其训练成本仅为既有最佳模型之一小部分。\n又证 Transformer 于他务亦能良好泛化，无论训练数据多寡，皆可成功用于英文句法分析。"
     },
     {
-      "variant_id": "ja",
+      "variant_id": "日文",
       "language": "ja",
       "text": "主流の系列変換モデルは、エンコーダとデコーダを含む複雑な再帰型または畳み込み型ニューラルネットワークに基づいている。最も高性能なモデルは、注意機構によってエンコーダとデコーダを接続する。私たちは、再帰や畳み込みを完全に排除し、注意機構のみに基づく新しいシンプルなネットワークアーキテクチャ Transformer を提案する。\n2つの機械翻訳タスクにおける実験により、これらのモデルは品質において優れており、より並列化しやすく、学習時間も大幅に短縮されることが示された。我々のモデルは WMT 2014 英独翻訳タスクで 28.4 BLEU を達成し、既存の最良結果（アンサンブルを含む）を 2 BLEU 以上上回った。英仏翻訳タスクでは、8 GPU で 3.5 日の学習後に 41.8 BLEU を達成し、単一モデルとして新たな最先端性能を確立した。\nまた Transformer は他のタスクにも良好に一般化し、大規模および小規模データの両方において英語構文解析に有効であることを示した。"
     },
     {
-      "variant_id": "ko",
+      "variant_id": "韩文",
       "language": "ko",
       "text": "현재 주류 시퀀스 변환 모델은 인코더와 디코더를 포함하는 복잡한 순환 신경망 또는 합성곱 신경망에 기반한다. 성능이 가장 우수한 모델은 어텐션 메커니즘을 통해 인코더와 디코더를 연결한다. 우리는 순환과 합성곱을 완전히 제거하고 어텐션 메커니즘만에 기반한 새로운 간단한 네트워크 구조인 Transformer를 제안한다.\n두 개의 기계 번역 과제에서의 실험 결과, 이러한 모델은 품질 면에서 더 우수하며, 더 높은 병렬성을 가지며, 학습 시간도 크게 감소함을 보였다. 우리 모델은 WMT 2014 영어-독일어 번역 과제에서 28.4 BLEU를 달성하여 기존의 최고 결과(앙상블 포함)를 2 BLEU 이상 향상시켰다. 영어-프랑스어 번역 과제에서는 8개의 GPU로 3.5일 학습 후 41.8 BLEU를 달성하여 단일 모델 기준 새로운 최고 성능을 기록하였다.\n또한 Transformer는 다른 과제에도 잘 일반화되며, 대규모 및 소규모 데이터 모두에서 영어 구문 분석에 성공적으로 적용됨을 보였다."
     },
     {
-      "variant_id": "it",
+      "variant_id": "意大利语",
       "language": "it",
       "text": "I modelli dominanti di trasduzione di sequenze sono basati su complesse reti neurali ricorrenti o convoluzionali che includono un codificatore e un decodificatore. I modelli con le migliori prestazioni collegano inoltre il codificatore e il decodificatore tramite un meccanismo di attenzione. Proponiamo una nuova architettura di rete semplice, il Transformer, basata esclusivamente su meccanismi di attenzione, eliminando completamente ricorrenza e convoluzioni.\nEsperimenti su due compiti di traduzione automatica mostrano che questi modelli sono superiori in termini di qualità, risultano più parallelizzabili e richiedono molto meno tempo di addestramento. Il nostro modello ottiene 28.4 BLEU sul compito di traduzione inglese-tedesco WMT 2014, migliorando di oltre 2 BLEU rispetto ai migliori risultati esistenti, inclusi gli ensemble. Nel compito inglese-francese WMT 2014, il nostro modello stabilisce un nuovo stato dell'arte con un BLEU di 41.8 dopo 3.5 giorni di addestramento su otto GPU, con un costo molto inferiore rispetto ai migliori modelli della letteratura.\nMostriamo inoltre che il Transformer generalizza bene ad altri compiti, applicandolo con successo al parsing sintattico dell'inglese sia con grandi che con piccoli set di dati."
     },
     {
-      "variant_id": "fi",
+      "variant_id": "芬兰语",
       "language": "fi",
       "text": "Vallitsevat sekvenssitransduktiomallit perustuvat monimutkaisiin rekursiivisiin tai konvoluutiohermoverkkoihin, jotka sisältävät kooderin ja dekooderin. Parhaiten suoriutuvat mallit yhdistävät lisäksi kooderin ja dekooderin huomiointimekanismin avulla. Ehdotamme uutta yksinkertaista verkkorakennetta, Transformeria, joka perustuu yksinomaan huomiointimekanismeihin ja poistaa kokonaan rekursion ja konvoluutiot.\nKokeet kahdessa konekäännöstehtävässä osoittavat, että nämä mallit ovat laadultaan parempia, paremmin rinnakkaistettavia ja vaativat huomattavasti vähemmän koulutusaikaa. Mallimme saavuttaa 28.4 BLEU -pistettä WMT 2014 englanti–saksa -käännöstehtävässä, parantaen aiempia parhaita tuloksia yli 2 BLEU:lla. Englanti–ranska -tehtävässä mallimme saavuttaa uuden yksittäismallin huipputuloksen, 41.8 BLEU, 3.5 päivän koulutuksella kahdeksalla GPU:lla.\nOsoitamme myös, että Transformer yleistyy hyvin muihin tehtäviin ja toimii onnistuneesti englannin lauseenjäsennyksessä sekä suurilla että pienillä aineistoilla."
     },
     {
-      "variant_id": "ar",
+      "variant_id": "阿拉伯语",
       "language": "ar",
       "text": "تعتمد النماذج السائدة لتحويل التسلسلات على شبكات عصبية تكرارية أو التفافية معقدة تتضمن مُرمّزًا ومُفكّكًا. كما تربط أفضل النماذج أداءً بين المُرمّز والمُفكّك باستخدام آلية الانتباه. نقترح بنية شبكة جديدة وبسيطة تُسمى Transformer، تعتمد بالكامل على آليات الانتباه وتلغي التكرار والالتفاف تمامًا.\nتُظهر التجارب على مهمتين للترجمة الآلية أن هذه النماذج تتفوق من حيث الجودة، كما أنها أكثر قابلية للتوازي وتتطلب وقت تدريب أقل بكثير. يحقق نموذجنا 28.4 BLEU في مهمة الترجمة من الإنجليزية إلى الألمانية ضمن WMT 2014، متفوقًا على أفضل النتائج السابقة بأكثر من 2 BLEU. وفي مهمة الترجمة من الإنجليزية إلى الفرنسية، يحقق نموذجنا 41.8 BLEU بعد تدريب لمدة 3.5 أيام على ثماني وحدات GPU، مع تكلفة تدريب أقل بكثير من النماذج السابقة.\nنُظهر أيضًا أن Transformer يعمم بشكل جيد على مهام أخرى، حيث تم تطبيقه بنجاح على تحليل البنية النحوية للغة الإنجليزية باستخدام بيانات تدريب كبيرة ومحدودة."
     }

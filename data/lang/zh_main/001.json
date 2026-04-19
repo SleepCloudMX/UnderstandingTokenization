@@ -1,24 +1,54 @@
 {
-  "case_id": "lang_zh_main_001",
+  "case_id": "lang_en_main_003",
   "task_type": "lang",
-  "subgroup": "zh_main",
-  "description": "Basic greeting sentence, Chinese as the source / main language",
-  "tags": ["greeting", "short", "baseline"],
+  "subgroup": "en_main",
+  "description": "Genshin Impact lore excerpt in 9 languages",
+  "tags": ["genshin", "lore", "multilingual", "mythology"],
   "variants": [
     {
-      "variant_id": "zh",
-      "language": "zh",
-      "text": "你好，世界！你今天怎么样？"
-    },
-    {
-      "variant_id": "en",
+      "variant_id": "英文",
       "language": "en",
-      "text": "Hello, world! How are you today?"
+      "text": "[The Year of the Dove Bearing a Branch] The eternal throne in the heavens arrived, and the world was renewed. Then the True King, the Primordial One, began a war against the rulers of the old world, the seven terrifying sovereigns. Those terrifying sovereigns were dragons. The Primordial One created its own shining shades, and their number was four. [Phanes, or the Primordial One] The Primordial One may be Phanes. It had wings, wore a crown, and was born from an egg, with its gender indistinguishable. Yet if the world was to be created, the shell had to be broken. Phanes—the Primordial One—instead used the shell to separate the \"universe\" from the \"miniature of the world.\" [Forty Years After the Branch Was Taken] Forty winters buried the fire, and forty summers boiled the sea. The seven sovereigns were all defeated, and the seven kingdoms all bowed to the heavens. The Primordial One began the creation of heaven and earth. For \"us\"—its most pitiable children would appear upon this land."
     },
     {
-      "variant_id": "ja",
+      "variant_id": "简体中文",
+      "language": "zh-Hans",
+      "text": "【鸽子衔枝之年】天上永恒的王座到来，世界为之焕然一新。然后真王，原初的那一位开始和旧世界的主人们，七位恐怖大王开战。那恐怖的大王们是龙。原初的那一位造出了自己发着光的影子，而影子的数量是四。【法涅斯，或者原初的那一位】原初的那一位或许是法涅斯。它生着羽翼，头戴王冠，从蛋中出生，难以分辨雌雄。但是世界如果要被创造，蛋壳必须被打破。法涅斯——原初的那一位——却用蛋壳隔绝了“宇宙”和“世界的缩影”。【衔枝后四十余年】四十个冬天埋葬了火，四十个夏天沸腾了海。七位大王全部被打败，七个王国全部对天上俯首称臣。原初的那一位大王开始了天地的创造。为了“我们”——它最可怜的人儿将出现在这片大地。"
+    },
+    {
+      "variant_id": "繁体中文",
+      "language": "zh-Hant",
+      "text": "【鴿子銜枝之年】天上永恆的王座到來，世界為之煥然一新。然後真王，原初的那一位開始與舊世界的主人們，七位恐怖大王開戰。那恐怖的大王們是龍。原初的那一位造出了自己發著光的影子，而影子的數量是四。【法涅斯，或者原初的那一位】原初的那一位或許是法涅斯。它生著羽翼，頭戴王冠，從蛋中出生，難以分辨雌雄。但是世界如果要被創造，蛋殼必須被打破。法涅斯——原初的那一位——卻用蛋殼隔絕了「宇宙」和「世界的縮影」。【銜枝後四十餘年】四十個冬天埋葬了火，四十個夏天沸騰了海。七位大王全部被打敗，七個王國全部對天上俯首稱臣。原初的那一位大王開始了天地的創造。為了「我們」——它最可憐的人兒將出現在這片大地。"
+    },
+    {
+      "variant_id": "文言文",
+      "language": "zh-classical",
+      "text": "【鸽衔枝之年】天上永恒之座既至，世界为之一新。乃真王原初者，与旧世之主七恐王战。其恐王者，龙也。原初者造其发光之影，其数为四。【法涅斯，或原初者】原初者或为法涅斯。生羽翼，戴冠，自卵而生，雌雄难辨。然世界将成，壳必破。法涅斯——原初者——反以壳隔“宇宙”与“世界之缩影”。【衔枝后四十余年】四十冬埋火，四十夏沸海。七王皆败，七国尽俯首于天。原初者乃始造天地。为“我等”——其最可怜之人，将生于此土。"
+    },
+    {
+      "variant_id": "日文",
       "language": "ja",
-      "text": "こんにちは、世界！今日はお元気ですか？"
+      "text": "【枝をくわえた鳩の年】天上の永遠の王座が到来し、世界は一新された。その後、真なる王、原初の一者は旧世界の支配者である七柱の恐るべき王と戦いを始めた。その恐るべき王たちは竜であった。原初の一者は自らの輝く影を創り出し、その数は四であった。【ファネス、あるいは原初の一者】原初の一者はファネスであるかもしれない。翼を持ち、王冠を戴き、卵から生まれ、雌雄の区別はつかない。しかし世界を創造するには殻を破らねばならない。だがファネス――原初の一者――は殻によって「宇宙」と「世界の縮図」を隔てた。【枝の後四十余年】四十の冬は火を埋め、四十の夏は海を沸騰させた。七柱の王はすべて打ち倒され、七つの国はすべて天にひざまずいた。原初の一者は天地の創造を始めた。「我ら」のために――その最も哀れな子らはこの地に現れるだろう。"
+    },
+    {
+      "variant_id": "韩文",
+      "language": "ko",
+      "text": "【비둘기가 가지를 물던 해】하늘의 영원한 왕좌가 도래하여 세계는 새롭게 바뀌었다. 그 후 진정한 왕, 원초의 존재는 옛 세계의 지배자들인 일곱 공포의 왕들과 전쟁을 시작했다. 그 공포의 왕들은 용이었다. 원초의 존재는 스스로 빛나는 그림자를 만들어냈고, 그 수는 네였다. 【파네스, 혹은 원초의 존재】원초의 존재는 파네스일지도 모른다. 날개를 지니고 왕관을 쓰며 알에서 태어나 성별을 구분하기 어렵다. 그러나 세계가 창조되기 위해서는 껍질이 반드시 깨져야 한다. 하지만 파네스—원초의 존재—는 껍질로 “우주”와 “세계의 축소판”을 분리했다。 【가지 이후 사십여 년】사십 번의 겨울이 불을 묻었고 사십 번의 여름이 바다를 끓게 했다. 일곱 왕은 모두 패배했고 일곱 왕국은 모두 하늘에 복종했다. 원초의 존재는 천지 창조를 시작했다. “우리”를 위해—그의 가장 불쌍한 자들이 이 땅에 나타날 것이다."
+    },
+    {
+      "variant_id": "意大利语",
+      "language": "it",
+      "text": "[L'Anno della Colomba con il Ramo] Il trono eterno nei cieli giunse, e il mondo fu rinnovato. Poi il vero re, il Primordiale, iniziò una guerra contro i sovrani del vecchio mondo, i sette terribili re. Quei terribili re erano draghi. Il Primordiale creò le proprie ombre luminose, e il loro numero era quattro. [Phanes, o il Primordiale] Il Primordiale potrebbe essere Phanes. Aveva ali, portava una corona, nacque da un uovo ed era impossibile distinguere il suo sesso. Tuttavia, se il mondo doveva essere creato, il guscio doveva essere spezzato. Ma Phanes—il Primordiale—usò invece il guscio per separare l'\"universo\" dalla \"miniatura del mondo.\" [Quaranta anni dopo il ramo] Quaranta inverni seppellirono il fuoco e quaranta estati fecero bollire il mare. I sette re furono tutti sconfitti, e i sette regni si inchinarono ai cieli. Il Primordiale iniziò la creazione del cielo e della terra. Per \"noi\"—i suoi figli più miserevoli sarebbero apparsi su questa terra."
+    },
+    {
+      "variant_id": "芬兰语",
+      "language": "fi",
+      "text": "[Kyyhkyn oksavuosi] Taivaallinen ikuinen valtaistuin saapui, ja maailma uudistui. Sen jälkeen todellinen kuningas, Alkuolento, aloitti sodan vanhan maailman hallitsijoita vastaan, seitsemää kauhistuttavaa kuningasta vastaan. Nuo kauhistuttavat kuninkaat olivat lohikäärmeitä. Alkuolento loi omat hohtavat varjonsa, ja niiden määrä oli neljä. [Phanes eli Alkuolento] Alkuolento saattaa olla Phanes. Sillä oli siivet, se kantoi kruunua, se syntyi munasta, eikä sen sukupuolta voinut erottaa. Mutta jos maailma oli luotava, kuoren täytyi rikkoutua. Kuitenkin Phanes—Alkuolento—käytti kuorta erottaakseen \"universumin\" \"maailman pienoiskuvasta.\" [Neljäkymmentä vuotta oksan jälkeen] Neljäkymmentä talvea hautasi tulen, ja neljäkymmentä kesää kiehutti meren. Kaikki seitsemän kuningasta kukistettiin, ja kaikki seitsemän valtakuntaa kumarsivat taivasta. Alkuolento aloitti taivaan ja maan luomisen. \"Meitä\" varten—sen säälittävimmät lapset ilmestyisivät tälle maalle."
+    },
+    {
+      "variant_id": "阿拉伯语",
+      "language": "ar",
+      "text": "【عام الحمامة الحاملة للغصن】وصل العرش الأبدي في السماء، فتجدد العالم. ثم بدأ الملك الحقيقي، الكائن الأول، حربًا ضد حكام العالم القديم، الملوك السبعة المرعبين. وكان هؤلاء الملوك المرعبون تنانين. خلق الكائن الأول ظلاله المضيئة، وكان عددها أربعة. 【فانيس، أو الكائن الأول】قد يكون الكائن الأول هو فانيس. كان له أجنحة، ويرتدي تاجًا، وولد من بيضة، ومن الصعب تمييز جنسه. لكن إذا كان لا بد من خلق العالم، فيجب كسر القشرة. ومع ذلك، استخدم فانيس—الكائن الأول—القشرة لعزل \"الكون\" عن \"نسخة العالم المصغرة.\" 【بعد أكثر من أربعين عامًا من الغصن】دفن أربعون شتاءً النار، وغلت أربعون صيفًا البحر. هُزم الملوك السبعة جميعًا، وخضعت الممالك السبع كلها للسماء. بدأ الكائن الأول خلق السماء والأرض. من أجل \"نحن\"—سيظهر أبناؤه الأكثر بؤسًا على هذه الأرض."
     }
   ]
 }
