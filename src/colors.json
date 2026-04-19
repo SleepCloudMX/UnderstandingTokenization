@@ -1,0 +1,25 @@
+{
+  "_comment": "20 种柔和的高对比度循环配色，用于词元高亮渲染。相邻颜色色调差异明显，整体舒适美观。",
+  "colors": [
+    "#fecaca",
+    "#bfdbfe",
+    "#bbf7d0",
+    "#fef08a",
+    "#e9d5ff",
+    "#fed7aa",
+    "#a5f3fc",
+    "#d9f99d",
+    "#fbcfe8",
+    "#c7d2fe",
+    "#fde68a",
+    "#99f6e4",
+    "#fca5a5",
+    "#ddd6fe",
+    "#bae6fd",
+    "#a7f3d0",
+    "#fcd34d",
+    "#f9a8d4",
+    "#86efac",
+    "#93c5fd"
+  ]
+}

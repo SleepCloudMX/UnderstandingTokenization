@@ -39,6 +39,11 @@ class BaseTokenizer(ABC):
         """将文本编码为 token id 列表。空文本应返回空列表。"""
         ...
 
+    @abstractmethod
+    def tokenize_to_strings(self, text: str) -> list[str]:
+        """将文本切分为 token 字符串列表（解码后），空文本返回空列表。"""
+        ...
+
     def count_tokens(self, text: str) -> int:
         """返回 token 数量，对空文本安全。"""
         if not text:
@@ -83,6 +88,15 @@ class TiktokenTokenizer(BaseTokenizer):
             return []
         # disallowed_special=() 允许编码所有特殊 token（如 <|endoftext|>）
         return self._enc.encode(text, disallowed_special=())
+
+    def tokenize_to_strings(self, text: str) -> list[str]:
+        if not text:
+            return []
+        token_ids = self._enc.encode(text, disallowed_special=())
+        return [
+            self._enc.decode([tid])
+            for tid in token_ids
+        ]
 
     @property
     def model(self) -> str:

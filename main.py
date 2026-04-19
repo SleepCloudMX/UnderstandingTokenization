@@ -29,6 +29,7 @@ from src.loader import scan_data_dir
 from src.metrics import compute_all_metrics
 from src.plotter import plot_metrics
 from src.tokenizer import get_tokenizer, list_tokenizers
+from src.variant_exporter import export_variant_mds
 
 
 # ---------------------------------------------------------------------------
@@ -135,7 +136,7 @@ def run(args: argparse.Namespace) -> int:
 
     # 1. 扫描数据文件
     scope = f"data/{args.subpath}" if args.subpath else "data（全部）"
-    print(f"[1/5] 扫描数据目录: {data_dir.resolve()}  scope={scope}")
+    print(f"[1/6] 扫描数据目录: {data_dir.resolve()}  scope={scope}")
     try:
         cases = scan_data_dir(data_dir, subpath=args.subpath)
     except FileNotFoundError as exc:
@@ -149,7 +150,7 @@ def run(args: argparse.Namespace) -> int:
     print(f"      找到 {len(cases)} 个样例")
 
     # 2. 初始化 tokenizer
-    print(f"[2/5] 初始化 tokenizer: {args.tokenizer} (model={args.model})")
+    print(f"[2/6] 初始化 tokenizer: {args.tokenizer} (model={args.model})")
     try:
         tok = get_tokenizer(args.tokenizer, model=args.model)
     except (ImportError, ValueError) as exc:
@@ -157,13 +158,13 @@ def run(args: argparse.Namespace) -> int:
         return 1
 
     # 3. 计算指标
-    print("[3/5] 计算指标 ...")
+    print("[3/6] 计算指标 ...")
     rows = compute_all_metrics(cases, tokenizers=[tok])
     print(f"      共生成 {len(rows)} 条统计记录")
 
     # 4. 导出结构化结果
     prefix = args.output_prefix
-    print(f"[4/5] 导出结果到: {output_dir.resolve()}")
+    print(f"[4/6] 导出结果到: {output_dir.resolve()}")
     json_path = export_json(rows, output_dir / f"{prefix}.json")
     csv_path  = export_csv(rows,  output_dir / f"{prefix}.csv")
     md_path   = export_md(rows,   output_dir / f"{prefix}.md")
@@ -171,11 +172,21 @@ def run(args: argparse.Namespace) -> int:
     print(f"      CSV  => {csv_path}")
     print(f"      MD   => {md_path}")
 
-    # 5. 绘制学术图表
+    # 5. 词元可视化 Markdown（每变体一个 .md）
+    print("[5/6] 导出词元着色 Markdown ...")
+    try:
+        md_files = export_variant_mds(rows, tok, output_dir)
+        print(f"      共写出 {len(md_files)} 个变体 .md 文件")
+        for p in md_files:
+            print(f"      variant-MD => {p}")
+    except Exception as exc:  # pylint: disable=broad-except
+        print(f"      警告: 词元 MD 导出失败（{exc}），已跳过。", file=sys.stderr)
+
+    # 6. 绘制学术图表
     if args.no_plot:
-        print("[5/5] 图表生成已跳过（--no-plot）")
+        print("[6/6] 图表生成已跳过（--no-plot）")
     else:
-        print("[5/5] 绘制图表 ...")
+        print("[6/6] 绘制图表 ...")
         try:
             png_path = plot_metrics(
                 rows,
