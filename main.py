@@ -3,11 +3,14 @@ main.py — CLI 入口
 
 用法示例
 --------
-# 默认：扫描全部 data/，输出到 output/
+# 默认：扫描全部 data/，输出到 output/temp/
 python main.py
 
 # 只运行一个子任务，输出自动镜像到 output/lang/en_main/
 python main.py --subpath lang/en_main
+
+# 直接传入文本，无须 data 目录
+python main.py --text "Hello world!😀" --output-dir output/test
 
 # 完整参数
 python main.py --subpath lang/en_main --data-dir data --output-dir output \
@@ -28,6 +31,7 @@ from src.exporter import export_csv, export_json, export_md
 from src.loader import scan_data_dir
 from src.metrics import compute_all_metrics
 from src.plotter import plot_metrics
+from src.schema import Case, Variant
 from src.tokenizer import get_tokenizer, list_tokenizers
 from src.variant_exporter import export_variant_mds
 
@@ -44,13 +48,22 @@ def build_parser() -> argparse.ArgumentParser:
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     parser.add_argument(
+        "--text",
+        default=None,
+        metavar="TEXT",
+        help=(
+            "直接传入待统计文本，跳过 data 目录扫描。"
+            "与 --data-dir / --subpath 互斥。"
+        ),
+    )
+    parser.add_argument(
         "--data-dir",
         default="data",
         help="数据根目录（包含 task_type/subgroup/*.json 结构）",
     )
     parser.add_argument(
         "--output-dir",
-        default="output",
+        default="output/temp",
         help="结果输出根目录（自动创建）",
     )
     parser.add_argument(
@@ -111,7 +124,11 @@ def _resolve_output_dir(output_dir: Path, subpath: str | None) -> Path:
 
 
 def _make_chart_title(args: argparse.Namespace) -> str:
-    scope = args.subpath if args.subpath else "all"
+    if getattr(args, "text", None) is not None:
+        preview = args.text[:30] + ("..." if len(args.text) > 30 else "")
+        scope = f"inline: {preview!r}"
+    else:
+        scope = args.subpath if args.subpath else "all"
     return (
         f"字符 & Token 统计数据  |  scope={scope}"
         f"  tokenizer={args.tokenizer}({args.model})"
@@ -131,23 +148,47 @@ def run(args: argparse.Namespace) -> int:
     else:
         warnings.simplefilter("ignore")
 
-    data_dir = Path(args.data_dir)
     output_dir = _resolve_output_dir(Path(args.output_dir), args.subpath)
 
-    # 1. 扫描数据文件
-    scope = f"data/{args.subpath}" if args.subpath else "data（全部）"
-    print(f"[1/6] 扫描数据目录: {data_dir.resolve()}  scope={scope}")
-    try:
-        cases = scan_data_dir(data_dir, subpath=args.subpath)
-    except FileNotFoundError as exc:
-        print(f"错误: {exc}", file=sys.stderr)
-        return 1
-
-    if not cases:
-        print("警告: 未找到任何有效样例，请检查数据目录结构或 --subpath 参数。")
-        return 1
-
-    print(f"      找到 {len(cases)} 个样例")
+    # ------------------------------------------------------------------
+    # 步骤 1：获取样例（文件扫描 或 --text 内联模式）
+    # ------------------------------------------------------------------
+    if args.text is not None:
+        # 内联模式：直接用命令行文本构造单个合成 Case
+        if args.subpath:
+            print("警告: --text 模式下 --subpath 参数无效，已忽略。", file=sys.stderr)
+        print(f"[1/6] 文本模式（inline）: {args.text[:60]!r}{'...' if len(args.text) > 60 else ''}")
+        cases = [
+            Case(
+                case_id="inline_001",
+                task_type="inline",
+                subgroup="text",
+                description="inline text from --text argument",
+                tags=[],
+                variants=[
+                    Variant(
+                        variant_id="input",
+                        language="auto",
+                        text=args.text,
+                    )
+                ],
+                source_file="inline",   # stem="inline"，用作子目录名
+            )
+        ]
+    else:
+        # 普通模式：扫描 data 目录
+        data_dir = Path(args.data_dir)
+        scope = f"data/{args.subpath}" if args.subpath else "data（全部）"
+        print(f"[1/6] 扫描数据目录: {data_dir.resolve()}  scope={scope}")
+        try:
+            cases = scan_data_dir(data_dir, subpath=args.subpath)
+        except FileNotFoundError as exc:
+            print(f"错误: {exc}", file=sys.stderr)
+            return 1
+        if not cases:
+            print("警告: 未找到任何有效样例，请检查数据目录结构或 --subpath 参数。")
+            return 1
+        print(f"      找到 {len(cases)} 个样例")
 
     # 2. 初始化 tokenizer
     print(f"[2/6] 初始化 tokenizer: {args.tokenizer} (model={args.model})")

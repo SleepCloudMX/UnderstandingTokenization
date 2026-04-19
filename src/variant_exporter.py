@@ -137,7 +137,7 @@ def _build_variant_md(
                 f'<span title="{title}" style="background:{color};'
                 f'padding:1px 2px;border-radius:2px">{escaped}</span>'
             )
-        body = "".join(parts) + "\n"
+        body = "".join(parts) + "\n\n"
 
     return header + body
 
