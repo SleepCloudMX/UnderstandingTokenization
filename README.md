@@ -2,7 +2,7 @@
 
 批量统计多语言 / 多格式测试文本的**字符数**与 **Token 数**，生成结构化报表与可视化输出。
 
-**推荐**：直接看[报告](docs\报告.html)中的图表与讨论分析即可。如果需要上手跑测试，可以继续阅读。
+**推荐**：直接看[报告](docs/report.html)中的图表与讨论分析即可。如果需要上手跑测试，可以继续阅读。
 
 **参考工具**：[tiktokenizer](https://tiktokenizer.vercel.app/)、[Google AI Studio](https://aistudio.google.com/prompts/new_chat)。
 
